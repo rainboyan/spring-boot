@@ -242,6 +242,7 @@ jobs:
         image: ci-image
       vars:
         ci-image-name: ci-image
+        dockerhub-proxy-cache: ((dockerhub-proxy-cache))
     - task: build-ci-image-jdk21
       privileged: true
       file: git-repo/ci/tasks/build-ci-image.yml
@@ -249,6 +250,7 @@ jobs:
         image: ci-image-jdk21
       vars:
         ci-image-name: ci-image-jdk21
+        dockerhub-proxy-cache: ((dockerhub-proxy-cache))
   - in_parallel:
     - put: ci-image
       params:
